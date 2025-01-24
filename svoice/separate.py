@@ -6,6 +6,7 @@ import sys
 import librosa
 import torch
 import tqdm
+import soundfile as sf
 
 from .data.data import EvalDataLoader, EvalDataset
 from . import distrib
@@ -63,7 +64,8 @@ def save_wavs(estimate_source, mix_sig, lengths, filenames, out_dir, sr=16000):
 
 
 def write(inputs, filename, sr=8000):
-    librosa.output.write_wav(filename, inputs, sr, norm=True)
+    # librosa.output.write_wav(filename, inputs, sr, norm=True)
+    sf.write(filename, inputs, sr, subtype='PCM_16')
 
 def separate_demo(mix_dir='mix/', batch_size=1, sample_rate=16000):
     mix_dir, mix_json = mix_dir, None
