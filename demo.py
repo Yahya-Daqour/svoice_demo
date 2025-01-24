@@ -72,7 +72,7 @@ with demo:
     
     with gr.Row():
         input_audio = gr.Audio(label="Input audio", type="numpy")
-        rec_audio = gr.Audio(label="Record Using Microphone", type="numpy", source="microphone")
+        rec_audio = gr.Audio(label="Record Using Microphone", type="numpy", sources="microphone")
 
     with gr.Row():
         output_audio1 = gr.Audio(label='Speaker 1', interactive=False)
